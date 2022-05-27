@@ -12,7 +12,10 @@ def clustering_prom(G):        # Clustering coeff
         s += B[key]
     return s/N
 # --------------------------------------------------
-def betweenness_prom(G, k=len(G)):       # Betweenness
+def betweenness_prom(G, k=None):       # Betweenness
+    if k == None:
+        k = len(G)
+    else: pass
     N = len(G); s = 0
     B_dict = nx.betweenness_centrality(G, k=k, normalized=False)
     for key in B_dict:
@@ -170,7 +173,10 @@ def grado_out_prom(G):
 # ----------------------------------------------------
 # ----------------------------------------------------
 # ----------------------------------------------------
-def analyse_graph(G, dict_E, k=len(G)):
+def analyse_graph(G, dict_E, k=None):
+    if k == None:
+        k = len(G)
+    else: pass
     dict_G = dict()
     
     if dict_E["Directed"] == True:
